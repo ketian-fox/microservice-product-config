@@ -1,0 +1,39 @@
+# 注意：如果在记事本上编写，下面的缩进不要使用Tab来缩进，不然报错
+# 保存时注意，选择 UTF-8 保存
+spring:
+  profiles:
+    active: dev # 激活开发环境配置
+---
+server:
+  port: 6001
+spring:
+  profiles: dev
+  application:
+    name: product-config-eureka
+eureka:
+  instance:
+    hostname: eureka6001.com
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://eureka6001.com:6001/eureka/
+  server:
+    enable-self-preservation: false # 测试环境建议禁用自我保护机制，用于本次环境切换测试*****************
+---
+server:
+  port: 6001
+spring:
+  profiles: prod
+  application:
+    name: product-config-eureka
+eureka:
+  instance:
+    hostname: eureka6001.com
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://eureka6001.com:6001/eureka/
+  server:
+    enable-self-preservation: true # 开发环境建议开启自我保护机制，用于本次环境切换测试*****************
