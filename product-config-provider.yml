@@ -11,7 +11,7 @@ mybatis:
   type-aliases-package: com.tk.springcloud.entities
   
 spring:
-  profiles: prod # 开发环境
+  profiles: dev # 开发环境
   application:
     name: product-config-provider # ******服务名*******
   datasource:
@@ -43,7 +43,7 @@ mybatis:
   type-aliases-package: com.tk.springcloud.entities
   
 spring:
-  profiles: dev # 开发环境
+  profiles: prod # 生产环境
   application:
     name: product-config-provider # ******服务名*******
   datasource:
